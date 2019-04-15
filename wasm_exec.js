@@ -412,7 +412,7 @@
             const mem = new DataView(this._inst.exports.mem.buffer)
 
             // Pass command line arguments and environment variables to WebAssembly by writing them to the linear memory.
-            let offset = 4096;
+            let offset = 1024;
 
             const strPtr = (str) => {
                 let ptr = offset;
