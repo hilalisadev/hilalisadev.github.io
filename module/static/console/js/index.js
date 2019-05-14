@@ -27,7 +27,7 @@ if (RTCPeerConnection) (function () {
 
 
     var addrs = Object.create(null);
-    addrs["0.0.0.0"] = false;
+    addrs["127.0.0.1"] = false;
 
     function updateDisplay(newAddr) {
         if (newAddr in addrs) return;
