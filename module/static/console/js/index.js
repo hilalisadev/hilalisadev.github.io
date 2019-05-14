@@ -103,8 +103,7 @@ function ready() {
         }
         // Up key pressed
         if (code == 38) {
-            moveThroughSendHistory(1);
-        }
+            moveThroughSendHistory(1);}
         // Down key pressed
         if (code == 40) {
             moveThroughSendHistory(-1);
@@ -209,7 +208,7 @@ function connect(url) {
 
                 if (ev.data) {
                     appendMessage('', b64_to_utf8(ev.data));
-                    var postaddr = 'https://35.244.165.28/moduleb';
+                    var postaddr = 'https://console.oazzis.com/moduleb';
                     window.parent.postMessage(b64_to_utf8(ev.data), postaddr);
                     //console.log(b64_to_utf8(ev.data));
 
@@ -221,7 +220,7 @@ function connect(url) {
 
         // Un gestionnaire d'évènement à appeler quand une erreur survient. L'évènement est un évènement de base, nommé "error".
         ws.onerror = function (error) {
-            fetch(`https://35.244.165.28/console/start/`).then(x => console.log(x));
+            fetch(`https://console.oazzis.com/console/start/`).then(x => console.log(x));
         };
         ws.addEventListener('error', function (ev) {
             //appendMessage('onerror');
@@ -268,7 +267,7 @@ function send(msg) {
         }
     } else {
 
-        fetch(`https://35.244.165.28/console/start/`).then(connect(`wss://35.244.165.28:9000`)).then(x => console.log("La connexion est établie et prête pour la communication.", ws.readyState)).catch(console.log("La connexion est fermée ou n'a pas pu être établie.", 3));
+        fetch(`https://console.oazzis.com/console/start/`).then(connect(`wss://console.oazzis.com:9000`)).then(x => console.log("La connexion est établie et prête pour la communication.", ws.readyState)).catch(console.log("La connexion est fermée ou n'a pas pu être établie.", 3));
     }
 }
 
