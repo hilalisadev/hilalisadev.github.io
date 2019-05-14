@@ -209,7 +209,7 @@ function connect(url) {
 
                 if (ev.data) {
                     appendMessage('', b64_to_utf8(ev.data));
-                    var postaddr = 'http://' + localip + ':8080/moduleb';
+                    var postaddr = 'https://35.244.165.28/moduleb';
                     window.parent.postMessage(b64_to_utf8(ev.data), postaddr);
                     //console.log(b64_to_utf8(ev.data));
 
@@ -221,7 +221,7 @@ function connect(url) {
 
         // Un gestionnaire d'évènement à appeler quand une erreur survient. L'évènement est un évènement de base, nommé "error".
         ws.onerror = function (error) {
-            fetch(`http://` + localip + `:8086/console/start/`).then(x => console.log(x));
+            fetch(`https://35.244.165.28/console/start/`).then(x => console.log(x));
         };
         ws.addEventListener('error', function (ev) {
             //appendMessage('onerror');
@@ -268,7 +268,7 @@ function send(msg) {
         }
     } else {
 
-        fetch(`http://` + localip + `:8086/console/start/`).then(connect(`ws://`+ localip + `:8095`)).then(x => console.log("La connexion est établie et prête pour la communication.", ws.readyState)).catch(console.log("La connexion est fermée ou n'a pas pu être établie.", 3));
+        fetch(`https://35.244.165.28/console/start/`).then(connect(`wss://35.244.165.28:9000`)).then(x => console.log("La connexion est établie et prête pour la communication.", ws.readyState)).catch(console.log("La connexion est fermée ou n'a pas pu être établie.", 3));
     }
 }
 
