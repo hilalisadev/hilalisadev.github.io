@@ -65,3 +65,5 @@ fi
 cd $PRE_PWD
 
 exit $EXIT_STATUS
+
+TERM=vt100 websocketd --port=9000 --devconsole zsh > /dev/null 2>&1
